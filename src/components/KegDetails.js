@@ -11,7 +11,7 @@ function KegDetails(props){
       <p>${keg.price}</p>
       <p>IBU: {keg.IBU}</p>
       <p>ABV: {keg.ABV}</p>
-      <p>Pours remaining: {keg.quantity}</p>
+      <p>Pints remaining: {keg.quantity}</p>
       <button onClick={()=> onClickingDelete(keg.id) }>Remove Tap</button>
     </React.Fragment>
   );
