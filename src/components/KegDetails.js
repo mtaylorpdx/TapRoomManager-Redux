@@ -4,6 +4,10 @@ import PropTypes from "prop-types";
 function KegDetails(props){
   const { keg, onClickingDelete } = props;
 
+  const sellPint = () => {
+    keg.quantity -=1;
+    };
+
   return (
     <React.Fragment>
       <h1>Keg Detail</h1>
@@ -13,6 +17,7 @@ function KegDetails(props){
       <p>ABV: {keg.ABV}</p>
       <p>Pints remaining: {keg.quantity}</p>
       <button onClick={()=> onClickingDelete(keg.id) }>Remove Tap</button>
+      <button onClick={sellPint}>Sell Pint</button>
     </React.Fragment>
   );
 }
