@@ -6,7 +6,7 @@ function KegDetails(props){
 
   const sellPint = () => {
     keg.quantity -=1;
-    };
+  };
 
   return (
     <React.Fragment>
