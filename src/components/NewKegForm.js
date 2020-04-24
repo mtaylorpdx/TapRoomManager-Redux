@@ -6,7 +6,14 @@ function NewKegForm(props) {
 
   function handleNewKegFormSubmission(event) {
     event.preventDefault();
-    props.onNewKegCreation({name: event.target.name.value, brewery: event.target.brewery.value, price: event.target.price.value, IBU: event.target.IBU.value, ABV: event.target.ABV.value, quantity: event.target.quantity.value, id: v4()});
+    props.onNewKegCreation({
+      name: event.target.name.value, 
+      brewery: event.target.brewery.value, 
+      price: event.target.price.value, 
+      IBU: event.target.IBU.value, 
+      ABV: event.target.ABV.value, 
+      quantity: event.target.quantity.value, 
+      id: v4()});
   }
 
   return(
@@ -27,7 +34,7 @@ function NewKegForm(props) {
         <input 
           type='text'
           name='IBU'
-          placeholder='IBUsPrice'/>
+          placeholder='IBUs'/>
         <input 
           type='text'
           name='ABV'
