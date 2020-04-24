@@ -26,8 +26,7 @@ class KegController extends React.Component {
 
   handleDeletingKeg = (id) => {
     const newMasterKegList = this.state.masterKegList.filter(keg => keg.id !== id);
-    this.setState({masterKegList: newMasterKegList});
-    this.setState({selectedKeg: null});
+    this.setState({masterKegList: newMasterKegList, selectedKeg: null});
   }
 
   handleSellingPint = (id) => {
