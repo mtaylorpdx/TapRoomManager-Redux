@@ -13,7 +13,7 @@ class KegController extends React.Component {
       kegList: []
     };
   }
-  
+
   handleAddingNewKegToList = (newKeg) => {
     const newKegList = this.state.masterKegList.concat(newKeg);
     this.setState({masterKegList: newKegList, formVisibleOnPage: false});
@@ -28,6 +28,16 @@ class KegController extends React.Component {
     const newMasterKegList = this.state.masterKegList.filter(keg => keg.id !== id);
     this.setState({masterKegList: newMasterKegList});
     this.setState({selectedKeg: null});
+  }
+
+  handleSellingPint = (id) => {
+    const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
+    const updatedQuantity = selectedKeg.quantity -1;
+    const updatedKeg = {...selectedKeg, quantity: updatedQuantity };
+    const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
+    this.setState({
+      masterKegList: [...kegList, updatedKeg]
+    })
   }
 
   handleClick = () => {
@@ -55,7 +65,7 @@ class KegController extends React.Component {
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />;
       buttonText = "Return to Tap List";
     } else {
-      currentlyVisibleState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg} />;
+      currentlyVisibleState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg} onSellingPint={this.handleSellingPint} />;
       buttonText = "Add Keg";
     }
     return (

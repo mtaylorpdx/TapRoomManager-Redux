@@ -9,6 +9,7 @@ function Keg(props){
       <p>IBU: {props.IBU}</p>
       <p>ABV: {props.ABV}</p>
       <p>Pours remaining: {props.quantity}</p>
+      <button onClick={()=> props.whenSellClicked(props.id)} type="submit">Sell a Pint</button>
       <hr/>
     </React.Fragment>
   );
