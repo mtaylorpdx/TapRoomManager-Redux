@@ -33,9 +33,13 @@ function KegList(){
     <React.Fragment>
       <h1>KegList</h1>
       {defaultKegList.map((keg, index) =>
-      <Keg name={keg.name} brewery={keg.brewery} price={keg.price} IBU={keg.IBU} ABV={keg.ABV} />
+      <Keg 
+        name={keg.name} 
+        brewery={keg.brewery} 
+        price={keg.price} 
+        IBU={keg.IBU} 
+        ABV={keg.ABV} />
       )}
-      <Keg />
     </React.Fragment>
   );
 }
