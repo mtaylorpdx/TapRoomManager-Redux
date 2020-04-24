@@ -12,7 +12,7 @@ function NewKegForm(props) {
       price: event.target.price.value, 
       IBU: event.target.IBU.value, 
       ABV: event.target.ABV.value, 
-      quantity: event.target.quantity.value, 
+      quantity: 124, 
       id: v4()});
   }
 
@@ -39,10 +39,6 @@ function NewKegForm(props) {
           type='text'
           name='ABV'
           placeholder='ABV'/>
-        <input 
-          type='number'
-          name='quantity'
-          placeholder='Quantity'/>
         <button type="submit">Add Keg to Tap List</button>
       </form>
     </React.Fragment>
