@@ -12,7 +12,7 @@ function KegDetails(props){
       <p>IBU: {keg.IBU}</p>
       <p>ABV: {keg.ABV}</p>
       <p>Pours remaining: {keg.quantity}</p>
-      <button onClick={()=> onClickingDelete(ticket.id) }>Remove Tap</button>
+      <button onClick={()=> onClickingDelete(keg.id) }>Remove Tap</button>
     </React.Fragment>
   );
 }
@@ -22,4 +22,4 @@ KegDetails.propTypes = {
   onClickingDelete: PropTypes.func
 };
 
-export default TicketDetails;
+export default KegDetails;

@@ -28,7 +28,7 @@ function NewKegForm(props) {
           name='brewery'
           placeholder='Brewery'/>
         <input 
-          type='number'
+          type='text'
           name='price'
           placeholder='Price'/>
         <input 

@@ -9,9 +9,11 @@ class KegController extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
+      masterKegList: [],
       kegList: []
     };
   }
+  
   handleAddingNewKegToList = (newKeg) => {
     const newKegList = this.state.masterKegList.concat(newKeg);
     this.setState({masterKegList: newKegList, formVisibleOnPage: false});
