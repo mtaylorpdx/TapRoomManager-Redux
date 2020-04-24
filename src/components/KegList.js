@@ -7,21 +7,24 @@ const defaultKegList = [
     brewery: "Brewery name",
     price:  "price",
     IBU: "biiterness",
-    ABV: "alcohol content"
+    ABV: "alcohol content",
+    Quantity: "50"
   },
   {
     name: "Beer name2",
     brewery: "Brewery name",
     price:  "price",
     IBU: "biiterness",
-    ABV: "alcohol content"
+    ABV: "alcohol content",
+    Quantity: "50"
   },
   {
     name: "Beer name3",
     brewery: "Brewery name",
     price:  "price",
     IBU: "biiterness",
-    ABV: "alcohol content"
+    ABV: "alcohol content",
+    Quantity: "50"
   }
 ]
 
