@@ -29,26 +29,6 @@ class KegController extends React.Component {
     this.setState({masterKegList: newMasterKegList, selectedKeg: null});
   }
 
-  handleSellingPint = (id) => {
-    const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
-    const updatedQuantity = selectedKeg.quantity -1;
-    const updatedKeg = {...selectedKeg, quantity: updatedQuantity };
-    const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
-    this.setState({
-      masterKegList: [...kegList, updatedKeg]
-    })
-  }
-
-  // handleSellingPint = (id) => {
-  //   const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
-  //   const updatedQuantity = selectedKeg.quantity -1;
-  //   const updatedKeg = {...selectedKeg, quantity: updatedQuantity}
-  //   const updatedKegList = this.state.masterKegList.filter(keg => keg.id !== this.state.selectedKeg.id).concat(updatedKeg);
-  //   this.setState({
-  //     masterKegList : updatedKegList
-  //   });
-  // }
-
   handleClick = () => {
     if (this.state.selectedKeg != null) {
       this.setState({
