@@ -2,15 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Keg(props){
+
   return (
     <React.Fragment>
-      <h3>{props.name} - {props.brewery}</h3>
-      <p>${props.price}</p>
-      <p>IBU: {props.IBU}</p>
-      <p>ABV: {props.ABV}</p>
-      <p>Pours remaining: {props.quantity}</p>
-      <button onClick={()=> props.whenSellClicked(props.id)} type="submit">Sell a Pint</button>
-      <hr/>
+      <div onClick = {() => props.whenKegClicked(props.id)}>
+        <h3>{props.name} - {props.brewery}</h3>
+        <p>${props.price}</p>
+        <p>IBU: {props.IBU}</p>
+        <p>ABV: {props.ABV}</p>
+        <p>Pours remaining: {props.quantity}</p>
+        <button onClick={()=> props.whenSellClicked(props.id)} type="submit">Sell a Pint</button>
+        <hr/>
+      </div>
     </React.Fragment>
   );
 }
