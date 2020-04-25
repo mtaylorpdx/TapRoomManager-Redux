@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
 import Header from './Layout/Header';
 import KegController from './KegController';
 import Footer from './Layout/Footer';
 import Container from "@material-ui/core/Container";
+import './App.css';
 
 function App() {
   return (
