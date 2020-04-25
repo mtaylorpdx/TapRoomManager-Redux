@@ -12,11 +12,11 @@ class KegController extends React.Component {
       selectedKeg: null,
       masterKegList: [
         {
-          name: "beer1",
-          brewery: "beer1",
-          price: "beer1",
-          IBU: "beer1",
-          ABV: "beer1",
+          name: "Beer1",
+          brewery: "Brewery1",
+          price: "5.00",
+          ibu: "5.2",
+          abv: "7.2",
           quantity: 124,
           id: 1
         },
@@ -24,8 +24,8 @@ class KegController extends React.Component {
           name: "beer2",
           brewery: "beer2",
           price: "beer2",
-          IBU: "beer2",
-          ABV: "beer2",
+          ibu: "beer2",
+          abv: "beer2",
           quantity: 124,
           id: 2
         },
@@ -33,8 +33,8 @@ class KegController extends React.Component {
           name: "beer3",
           brewery: "beer3",
           price: "beer3",
-          IBU: "beer3",
-          ABV: "beer3",
+          ibu: "beer3",
+          abv: "beer3",
           quantity: 124,
           id: 3
         }
