@@ -10,7 +10,7 @@ function App() {
   return (
     <React.Fragment>
       <Header />
-      <Container maxWidth="md">
+      <Container>
         <KegController />
       </Container>
       <Footer />

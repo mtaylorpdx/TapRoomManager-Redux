@@ -2,7 +2,7 @@ import React from 'react';
 import KegList from './KegList';
 import NewKegForm from './NewKegForm';
 import KegDetails from './KegDetails';
-import Card from 'react-bootstrap/Card';
+import { Row, Col } from 'react-bootstrap';
 
 class KegController extends React.Component {
 
@@ -77,12 +77,17 @@ class KegController extends React.Component {
     return (
       <React.Fragment>
         <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />
-      {beerDetails}
-
-      <KegList 
-        kegList={this.state.masterKegList}
-        onKegSelection={this.handleChangingSelectedKeg}
-        onSellingPint={this.handleSellingPint} />
+        <Row>
+          <Col md={8}>
+            <KegList 
+              kegList={this.state.masterKegList}
+              onKegSelection={this.handleChangingSelectedKeg}
+              onSellingPint={this.handleSellingPint} />
+          </Col>
+          <Col md={4}>
+            {beerDetails}
+          </Col>
+        </Row>
       </React.Fragment>
     );
   }
