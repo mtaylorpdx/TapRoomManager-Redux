@@ -1,9 +1,16 @@
 import React from 'react';
 
 const Header = () => {
-
+  const headerStyle = {
+    textAlign: 'center'
+  }
   return(
-    <h1>The Tap Room</h1>
+    <React.Fragment>
+      <div style={headerStyle}>
+        <img src={require("../../img/tap-banner.jpg")} alt="banner" />
+        <h1>The Tap Room</h1>
+      </div>
+    </React.Fragment>
   )
 }
 

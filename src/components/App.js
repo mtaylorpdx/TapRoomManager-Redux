@@ -8,11 +8,11 @@ import './App.css';
 function App() {
   return (
     <React.Fragment>
+      <Header />
       <Container maxWidth="md">
-        <Header />
         <KegController />
-        <Footer />
       </Container>
+      <Footer />
     </React.Fragment>
   );
 }

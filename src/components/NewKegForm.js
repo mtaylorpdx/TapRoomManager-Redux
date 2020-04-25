@@ -10,8 +10,8 @@ function NewKegForm(props) {
       name: event.target.name.value, 
       brewery: event.target.brewery.value, 
       price: event.target.price.value, 
-      IBU: event.target.IBU.value, 
-      ABV: event.target.ABV.value, 
+      IBU: event.target.ibu.value, 
+      ABV: event.target.abv.value, 
       quantity: 124, 
       id: v4()});
   }
