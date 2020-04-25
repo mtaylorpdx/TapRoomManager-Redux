@@ -18,6 +18,8 @@ function NewKegForm(props) {
 
   return(
     <React.Fragment>
+      <hr/>
+      <p>Add a new tap:</p>
       <form onSubmit= {handleNewKegFormSubmission}>
         <input type='text' name='name' placeholder='Beer Name'/>
         <input type='text' name='brewery' placeholder='Brewery'/>
@@ -26,6 +28,7 @@ function NewKegForm(props) {
         <input type='text' name='abv' placeholder='ABV'/>
         <button type="submit">Add Keg to Tap List</button>
       </form>
+      <hr/>
     </React.Fragment>
   );
 }

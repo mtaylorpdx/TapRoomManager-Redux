@@ -12,20 +12,20 @@ class KegController extends React.Component {
       selectedKeg: null,
       masterKegList: [
         {
-          name: "Beer1",
-          brewery: "Brewery1",
+          name: "All Day IPA",
+          brewery: "Founders",
           price: "5.00",
-          ibu: "5.2",
-          abv: "7.2",
+          ibu: "42",
+          abv: "4.7",
           quantity: 124,
           id: 1
         },
         {
-          name: "beer2",
-          brewery: "beer2",
-          price: "beer2",
-          ibu: "beer2",
-          abv: "beer2",
+          name: "Blackstone",
+          brewery: "Driftwood Brewing",
+          price: "6.00",
+          ibu: "20",
+          abv: "6",
           quantity: 124,
           id: 2
         },
@@ -57,15 +57,6 @@ class KegController extends React.Component {
     this.setState({masterKegList: newMasterKegList, selectedKeg: null});
   }
 
-  handleSellingPint = (id) => {
-    const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
-    const updatedKeg = {...selectedKeg, quantity: selectedKeg.quantity - 1};
-    const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
-    this.setState({
-      masterKegList: [...kegList, updatedKeg]
-    })
-  }
-
   // handleSellingPint = (id) => {
   //   const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
   //   const updatedKeg = {...selectedKeg, quantity: selectedKeg.quantity - 1};
@@ -75,50 +66,33 @@ class KegController extends React.Component {
   //   })
   // }
 
-  handleClick = () => {
-    if (this.state.selectedKeg != null) {
-      this.setState({
-        formVisibleOnPage: false,
-        selectedKeg: null
-      });
-    } else {
-      this.setState(prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage
-      }));
-    }
-  }
-
   render() {
-    let currentlyVisibleState = null;
-    let buttonText = null;
+    let beerDetails = null;
 
     if (this.state.selectedKeg != null) {
-      currentlyVisibleState = <KegDetails 
+      beerDetails = <KegDetails 
         keg = {this.state.selectedKeg} 
         onClickingDelete = {this.handleDeletingKeg} />
-      buttonText = "Return to Tap List";
-    // } else if (this.state.formVisibleOnPage) {
-    //   currentlyVisibleState = <NewKegForm 
-    //     onNewKegCreation={this.handleAddingNewKegToList} />;  
-    //   buttonText = "Return to Tap List";
-    // } else {
-    //   currentlyVisibleState = <KegList 
-    //     kegList={this.state.masterKegList} 
-    //     onSellingPint={this.handleSellingPint}
-    //     onKegSelection={this.handleChangingSelectedKeg} />;
-      buttonText = "Add Keg";
     }
     return (
       <React.Fragment>
-        <Grid>
+        <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />
+        <Grid
+          container
+          direction="column"
+          justify="flex-start"
+          align="flex-start">
           <KegList 
             kegList={this.state.masterKegList}
             onSellingPint={this.handleSellingPint}onKegSelection={this.handleChangingSelectedKeg} />
 
-          {currentlyVisibleState}
-          <NewKegForm 
-        onNewKegCreation={this.handleAddingNewKegToList} />
-          <button onClick={this.handleClick}>{buttonText}</button>
+        </Grid>
+        <Grid
+          container
+          direction="column"
+          justify="flex-start"
+          align="flex-end">
+          {beerDetails}
         </Grid>
       </React.Fragment>
     );
