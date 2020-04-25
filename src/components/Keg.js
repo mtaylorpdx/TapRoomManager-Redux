@@ -9,7 +9,6 @@ function Keg(props){
       <Card className='kegCard'>
         <h4>${props.price} <br/>
         {props.name} by {props.brewery}</h4>
-        {/* <h5>IBUs: {props.ibu} - ABV: {props.abv}%</h5> */}
         <button onClick = {() => props.whenPintSold(props.id)}>Sell a Pint</button>
         <button onClick = {() => props.whenKegClicked(props.id)}>Details</button>
         <h5>Pours remaining: {props.quantity}</h5>

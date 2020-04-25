@@ -5,10 +5,6 @@ import Card from '@material-ui/core/Card';
 function KegDetails(props){
   const { keg, onClickingDelete } = props;
 
-  const sellPint = () => {
-    keg.quantity -=1;
-  };
-
   return (
     <React.Fragment>
       <Card>
@@ -20,7 +16,6 @@ function KegDetails(props){
           ABV: {keg.abv}%<br/>
           Pints remaining: {keg.quantity}</p>
         <button onClick={()=> onClickingDelete(keg.id) }>Remove Tap</button>
-        <button onClick={sellPint}>Sell Pint</button>
       </Card>
     </React.Fragment>
   );
