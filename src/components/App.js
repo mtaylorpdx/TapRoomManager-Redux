@@ -3,13 +3,16 @@ import './App.css';
 import Header from './Layout/Header';
 import KegController from './KegController';
 import Footer from './Layout/Footer';
+import Container from "@material-ui/core/Container";
 
 function App() {
   return (
     <React.Fragment>
-      <Header />
-      <KegController />
-      <Footer />
+      <Container maxWidth="md">
+        <Header />
+        <KegController />
+        <Footer />
+      </Container>
     </React.Fragment>
   );
 }

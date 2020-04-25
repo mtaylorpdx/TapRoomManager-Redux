@@ -8,7 +8,7 @@ class KegController extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false,
+      // formVisibleOnPage: false,
       selectedKeg: null,
       masterKegList: [
         {
@@ -21,20 +21,20 @@ class KegController extends React.Component {
           id: 1
         },
         {
-          name: "beer1",
-          brewery: "beer1",
-          price: "beer1",
-          IBU: "beer1",
-          ABV: "beer1",
+          name: "beer2",
+          brewery: "beer2",
+          price: "beer2",
+          IBU: "beer2",
+          ABV: "beer2",
           quantity: 124,
           id: 2
         },
         {
-          name: "beer1",
-          brewery: "beer1",
-          price: "beer1",
-          IBU: "beer1",
-          ABV: "beer1",
+          name: "beer3",
+          brewery: "beer3",
+          price: "beer3",
+          IBU: "beer3",
+          ABV: "beer3",
           quantity: 124,
           id: 3
         }
@@ -44,7 +44,7 @@ class KegController extends React.Component {
 
   handleAddingNewKegToList = (newKeg) => {
     const newKegList = this.state.masterKegList.concat(newKeg);
-    this.setState({masterKegList: newKegList, formVisibleOnPage: false});
+    this.setState({masterKegList: newKegList});
   }
 
   handleChangingSelectedKeg = (id) => {
@@ -55,6 +55,15 @@ class KegController extends React.Component {
   handleDeletingKeg = (id) => {
     const newMasterKegList = this.state.masterKegList.filter(keg => keg.id !== id);
     this.setState({masterKegList: newMasterKegList, selectedKeg: null});
+  }
+
+  handleSellingPint = (id) => {
+    const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
+    const updatedKeg = {...selectedKeg, quantity: selectedKeg.quantity - 1};
+    const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
+    this.setState({
+      masterKegList: [...kegList, updatedKeg]
+    })
   }
 
   handleClick = () => {
