@@ -10,8 +10,8 @@ function KegDetails(props){
       <Card>
         <h5>Keg Details </h5>
          <p>Beer Name: {keg.name} <br/>
-          Brewery Name:{keg.brewery}<br/>
-          ${keg.price}<br/>
+          Brewery Name: {keg.brewery}<br/>
+          Price: ${keg.price}<br/>
           IBU: {keg.ibu}<br/>
           ABV: {keg.abv}%<br/>
           Pints remaining: {keg.quantity}</p>

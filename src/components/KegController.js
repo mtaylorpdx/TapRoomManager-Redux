@@ -28,15 +28,6 @@ class KegController extends React.Component {
           abv: "6",
           quantity: 124,
           id: 2
-        },
-        {
-          name: "beer3",
-          brewery: "beer3",
-          price: "beer3",
-          ibu: "beer3",
-          abv: "beer3",
-          quantity: 124,
-          id: 3
         }
       ]
     };
@@ -59,11 +50,14 @@ class KegController extends React.Component {
 
   handleSellingPint = (id) => {
     const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
-    const updatedKeg = {...selectedKeg, quantity: selectedKeg.quantity - 1};
-    const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
-    this.setState({
-      masterKegList: [...kegList, updatedKeg]
-    })
+    if (selectedKeg.quantity >= 1)
+    {
+      const updatedKeg = {...selectedKeg, quantity: selectedKeg.quantity - 1};
+      const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
+      this.setState({
+        masterKegList: [...kegList, updatedKeg]
+      })
+    }
   }
 
   render() {
