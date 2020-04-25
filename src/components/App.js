@@ -2,7 +2,8 @@ import React from 'react';
 import Header from './Layout/Header';
 import KegController from './KegController';
 import Footer from './Layout/Footer';
-import Container from "@material-ui/core/Container";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
 import './App.css';
 
 function App() {

@@ -7,7 +7,7 @@ const Header = () => {
   return(
     <React.Fragment>
       <div style={headerStyle}>
-        <img src={require("../../img/tap-banner.jpg")} alt="banner" />
+        <img style={{maxWidth: '100%'}} src={require("../../img/tap-banner.jpg")} alt="banner" />
         <h1>The Tap Room</h1>
       </div>
     </React.Fragment>

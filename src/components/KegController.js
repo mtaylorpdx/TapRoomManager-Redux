@@ -2,14 +2,14 @@ import React from 'react';
 import KegList from './KegList';
 import NewKegForm from './NewKegForm';
 import KegDetails from './KegDetails';
-import Grid from '@material-ui/core/Grid';
+import Card from 'react-bootstrap/Card';
 
 class KegController extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      selectedKeg: null,
+      selectedKeg: {},
       masterKegList: [
         {
           name: "All Day IPA",
@@ -57,14 +57,14 @@ class KegController extends React.Component {
     this.setState({masterKegList: newMasterKegList, selectedKeg: null});
   }
 
-  // handleSellingPint = (id) => {
-  //   const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
-  //   const updatedKeg = {...selectedKeg, quantity: selectedKeg.quantity - 1};
-  //   const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
-  //   this.setState({
-  //     masterKegList: [...kegList, updatedKeg]
-  //   })
-  // }
+  handleSellingPint = (id) => {
+    const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
+    const updatedKeg = {...selectedKeg, quantity: selectedKeg.quantity - 1};
+    const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
+    this.setState({
+      masterKegList: [...kegList, updatedKeg]
+    })
+  }
 
   render() {
     let beerDetails = null;
@@ -77,23 +77,12 @@ class KegController extends React.Component {
     return (
       <React.Fragment>
         <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />
-        <Grid
-          container
-          direction="column"
-          justify="flex-start"
-          align="flex-start">
-          <KegList 
-            kegList={this.state.masterKegList}
-            onSellingPint={this.handleSellingPint}onKegSelection={this.handleChangingSelectedKeg} />
+      {beerDetails}
 
-        </Grid>
-        <Grid
-          container
-          direction="column"
-          justify="flex-start"
-          align="flex-end">
-          {beerDetails}
-        </Grid>
+      <KegList 
+        kegList={this.state.masterKegList}
+        onKegSelection={this.handleChangingSelectedKeg}
+        onSellingPint={this.handleSellingPint} />
       </React.Fragment>
     );
   }

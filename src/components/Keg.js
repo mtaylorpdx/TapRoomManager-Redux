@@ -1,18 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Card from '@material-ui/core/Card';
+import Card from 'react-bootstrap/Card';
 
 function Keg(props){
 
   return (
     <React.Fragment>
       <Card className='kegCard'>
-          <button onClick = {() => props.whenKegClicked(props.id)}>Details</button>
-            <h4>${props.price} {props.name} 
-            <br/>
-            {props.brewery}</h4>
-            <h5>IBUs: {props.ibu} - ABV: {props.abv}%</h5>
-            <h5>Pours remaining: {props.quantity}</h5>
+        <h4>${props.price} <br/>
+        {props.name} by {props.brewery}</h4>
+        {/* <h5>IBUs: {props.ibu} - ABV: {props.abv}%</h5> */}
+        <button onClick = {() => props.whenPintSold(props.id)}>Sell a Pint</button>
+        <button onClick = {() => props.whenKegClicked(props.id)}>Details</button>
+        <h5>Pours remaining: {props.quantity}</h5>
       </Card>
     </React.Fragment>
   );
@@ -26,7 +26,8 @@ Keg.propTypes = {
   abv: PropTypes.string,
   quantity: PropTypes.number,
   id: PropTypes.string,
-  whenKegClicked: PropTypes.func
+  whenKegClicked: PropTypes.func,
+  whenPintSold: PropTypes.func
 };
 
 export default Keg;
