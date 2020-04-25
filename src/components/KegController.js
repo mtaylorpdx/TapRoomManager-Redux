@@ -1,6 +1,6 @@
 import React from 'react';
 import KegList from './KegList';
-// import NewKegForm from './NewKegForm';
+import NewKegForm from './NewKegForm';
 import KegDetails from './KegDetails';
 import Grid from '@material-ui/core/Grid';
 
@@ -101,19 +101,23 @@ class KegController extends React.Component {
     //   currentlyVisibleState = <NewKegForm 
     //     onNewKegCreation={this.handleAddingNewKegToList} />;  
     //   buttonText = "Return to Tap List";
-    } else {
-      currentlyVisibleState = <KegList 
-        kegList={this.state.masterKegList} 
-        onSellingPint={this.handleSellingPint}
-        onKegSelection={this.handleChangingSelectedKeg} />;
+    // } else {
+    //   currentlyVisibleState = <KegList 
+    //     kegList={this.state.masterKegList} 
+    //     onSellingPint={this.handleSellingPint}
+    //     onKegSelection={this.handleChangingSelectedKeg} />;
       buttonText = "Add Keg";
     }
     return (
       <React.Fragment>
         <Grid>
-          <KegList kegList={this.state.masterKegList} onSellingPint={this.handleSellingPint} onKegSelection={this.handleChangingSelectedKeg} />
+          <KegList 
+            kegList={this.state.masterKegList}
+            onSellingPint={this.handleSellingPint}onKegSelection={this.handleChangingSelectedKeg} />
+
           {currentlyVisibleState}
-          
+          <NewKegForm 
+        onNewKegCreation={this.handleAddingNewKegToList} />
           <button onClick={this.handleClick}>{buttonText}</button>
         </Grid>
       </React.Fragment>
