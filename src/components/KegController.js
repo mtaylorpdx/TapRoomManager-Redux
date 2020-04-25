@@ -111,7 +111,9 @@ class KegController extends React.Component {
     return (
       <React.Fragment>
         <Grid>
+          <KegList kegList={this.state.masterKegList} onSellingPint={this.handleSellingPint} onKegSelection={this.handleChangingSelectedKeg} />
           {currentlyVisibleState}
+          
           <button onClick={this.handleClick}>{buttonText}</button>
         </Grid>
       </React.Fragment>
