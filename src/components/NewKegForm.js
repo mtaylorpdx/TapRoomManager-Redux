@@ -19,26 +19,11 @@ function NewKegForm(props) {
   return(
     <React.Fragment>
       <form onSubmit= {handleNewKegFormSubmission}>
-        <input 
-          type='text'
-          name='name'
-          placeholder='Beer Name'/>
-        <input 
-          type='text'
-          name='brewery'
-          placeholder='Brewery'/>
-        <input 
-          type='text'
-          name='price'
-          placeholder='Price'/>
-        <input 
-          type='text'
-          name='IBU'
-          placeholder='IBUs'/>
-        <input 
-          type='text'
-          name='ABV'
-          placeholder='ABV'/>
+        <input type='text' name='name' placeholder='Beer Name'/>
+        <input type='text' name='brewery' placeholder='Brewery'/>
+        <input type='text' name='price' placeholder='Price'/>
+        <input type='text' name='ibu' placeholder='IBUs'/>
+        <input type='text' name='abv' placeholder='ABV'/>
         <button type="submit">Add Keg to Tap List</button>
       </form>
     </React.Fragment>

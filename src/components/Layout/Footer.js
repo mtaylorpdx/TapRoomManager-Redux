@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return(
-    <p>Footer</p>
+    <h6>2020</h6>
   )
 }
 

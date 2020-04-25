@@ -8,11 +8,9 @@ function Keg(props){
     <React.Fragment>
       <Card className='kegCard'>
           <div onClick = {() => props.whenKegClicked(props.id)}>
-            <h3>{props.name} - {props.brewery}</h3>
-            <p>${props.price}</p>
-            <p>IBUs: {props.ibu} - ABV: {props.abv}</p>
-            <p>Pours remaining: {props.quantity}</p>
-            <hr/>
+            <h4>${props.price} {props.name} - {props.brewery}</h4>
+            <h5>IBUs: {props.ibu} - ABV: {props.abv}</h5>
+            <h5>Pours remaining: {props.quantity}</h5>
           </div>
       </Card>
     </React.Fragment>

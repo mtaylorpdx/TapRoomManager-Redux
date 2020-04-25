@@ -1,14 +1,14 @@
 import React from 'react';
 import KegList from './KegList';
-import NewKegForm from './NewKegForm';
+// import NewKegForm from './NewKegForm';
 import KegDetails from './KegDetails';
+import Grid from '@material-ui/core/Grid';
 
 class KegController extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      // formVisibleOnPage: false,
       selectedKeg: null,
       masterKegList: [
         {
@@ -66,6 +66,15 @@ class KegController extends React.Component {
     })
   }
 
+  // handleSellingPint = (id) => {
+  //   const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
+  //   const updatedKeg = {...selectedKeg, quantity: selectedKeg.quantity - 1};
+  //   const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
+  //   this.setState({
+  //     masterKegList: [...kegList, updatedKeg]
+  //   })
+  // }
+
   handleClick = () => {
     if (this.state.selectedKeg != null) {
       this.setState({
@@ -88,10 +97,10 @@ class KegController extends React.Component {
         keg = {this.state.selectedKeg} 
         onClickingDelete = {this.handleDeletingKeg} />
       buttonText = "Return to Tap List";
-    } else if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewKegForm 
-        onNewKegCreation={this.handleAddingNewKegToList} />;  
-      buttonText = "Return to Tap List";
+    // } else if (this.state.formVisibleOnPage) {
+    //   currentlyVisibleState = <NewKegForm 
+    //     onNewKegCreation={this.handleAddingNewKegToList} />;  
+    //   buttonText = "Return to Tap List";
     } else {
       currentlyVisibleState = <KegList 
         kegList={this.state.masterKegList} 
@@ -101,8 +110,10 @@ class KegController extends React.Component {
     }
     return (
       <React.Fragment>
-        {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <Grid>
+          {currentlyVisibleState}
+          <button onClick={this.handleClick}>{buttonText}</button>
+        </Grid>
       </React.Fragment>
     );
   }
