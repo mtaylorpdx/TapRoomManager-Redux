@@ -48,16 +48,26 @@ class KegController extends React.Component {
     this.setState({masterKegList: newMasterKegList, selectedKeg: null});
   }
 
-  handleSellingPint = (id) => {
-    const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
-    if (selectedKeg.quantity >= 1)
-    {
-      const updatedKeg = {...selectedKeg, quantity: selectedKeg.quantity - 1};
-      const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
-      this.setState({
-        masterKegList: [...kegList, updatedKeg]
-      })
-    }
+  // handleSellingPint = (id) => {
+  //   const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
+  //   if (selectedKeg.quantity >= 1) {
+  //     const updatedKeg = {...selectedKeg, quantity: selectedKeg.quantity - 1};
+  //     const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
+  //     this.setState({
+  //       masterKegList: [...kegList, updatedKeg]
+  //     });
+  //   }
+  //   else {
+  //     //change string to message
+  //   }
+  // }
+
+  handleSellingPint = (key) => {
+    const kegList = this.state.masterKegList;
+    kegList[(key - 1)].quantity -=1;
+    this.setState({
+      masterKegList: kegList
+    });
   }
 
   render() {
@@ -68,6 +78,7 @@ class KegController extends React.Component {
         keg = {this.state.selectedKeg} 
         onClickingDelete = {this.handleDeletingKeg} />
     }
+
     return (
       <React.Fragment>
         <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />

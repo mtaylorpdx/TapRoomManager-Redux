@@ -7,7 +7,7 @@ function KegDetails(props){
 
   return (
     <React.Fragment>
-      <Card>
+      <Card className="detailsCard">
         <h5>Keg Details </h5>
          <p>Beer Name: {keg.name} <br/>
           Brewery Name: {keg.brewery}<br/>

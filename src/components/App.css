@@ -9,3 +9,7 @@ body {
   margin: 3%;
   /* height: 20%; */
 }
+
+.detailsCard {
+  padding: 10%;
+}
