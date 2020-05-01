@@ -11,27 +11,7 @@ class KegController extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedKeg: {},
-      // masterKegList: [
-      //   {
-      //     name: "All Day IPA",
-      //     brewery: "Founders",
-      //     price: "5.00",
-      //     ibu: "42",
-      //     abv: "4.7",
-      //     quantity: 124,
-      //     id: 1
-      //   },
-      //   {
-      //     name: "Blackstone",
-      //     brewery: "Driftwood Brewing",
-      //     price: "6.00",
-      //     ibu: "20",
-      //     abv: "6",
-      //     quantity: 124,
-      //     id: 2
-      //   }
-      // ]
+
     };
   }
 
@@ -42,8 +22,10 @@ class KegController extends React.Component {
   }
 
   handleChangingSelectedKeg = (id) => {
-    const selectedKeg = this.props.masterKegList[id];
-    this.setState({selectedKeg: selectedKeg});
+    const selectedKeg = this.props.kegList[id];
+    const {dispatch} = this.props;
+    const action = a.detailKeg(selectedKeg);
+    dispatch(action);
   }
 
   handleDeletingKeg = (id) => {
@@ -53,27 +35,11 @@ class KegController extends React.Component {
     this.setState({selectedKeg: null});
   }
 
-  // Other selling pint function below. Still not bug-free.
-
-  // handleSellingPint = (id) => {
-  //   const selectedKeg = this.state.masterKegList.filter(keg => keg.id === id)[0];
-  //   if (selectedKeg.quantity >= 1) {
-  //     const updatedKeg = {...selectedKeg, quantity: selectedKeg.quantity - 1};
-  //     const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
-  //     this.setState({
-  //       masterKegList: [...kegList, updatedKeg]
-  //     });
-  //   }
-  //   else {
-  //     //change string to message
-  //   }
-  // }
-
   handleSellingPint = (key) => {
-    const kegList = this.state.masterKegList;
+    const kegList = this.state.kegList;
     kegList[(key - 1)].quantity -=1;
     this.setState({
-      masterKegList: kegList
+      kegList: kegList
     });
   }
 
@@ -82,7 +48,7 @@ class KegController extends React.Component {
 
     if (this.state.selectedKeg != null) {
       beerDetails = <KegDetails 
-        keg = {this.state.selectedKeg} 
+        keg = {this.props.selectedKeg} 
         onClickingDelete = {this.handleDeletingKeg} />
     }
 
@@ -92,7 +58,7 @@ class KegController extends React.Component {
         <Row>
           <Col md={8}>
             <KegList 
-              kegList={this.props.masterKegList}
+              kegList={this.props.kegList}
               onKegSelection={this.handleChangingSelectedKeg}
               onSellingPint={this.handleSellingPint} />
           </Col>
@@ -107,7 +73,8 @@ class KegController extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    masterKegList: state
+    kegList: state.kegList,
+    selectedKeg: state.selectedKeg
   }
 }
 

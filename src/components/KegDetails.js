@@ -2,22 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import Card from '@material-ui/core/Card';
 
-function KegDetails(props){
-  const { keg, onClickingDelete } = props;
+const KegDetails = (props) => {
+  // const { keg, onClickingDelete } = props;
 
   return (
-    <React.Fragment>
+    <div>
       <Card className="detailsCard">
         <h5>Keg Details </h5>
-         <p>Beer Name: {keg.name} <br/>
-          Brewery Name: {keg.brewery}<br/>
-          Price: ${keg.price}<br/>
-          IBU: {keg.ibu}<br/>
-          ABV: {keg.abv}%<br/>
-          Pints remaining: {keg.quantity}</p>
-        <button onClick={()=> onClickingDelete(keg.id) }>Remove Tap</button>
+         <p>Beer Name: {props.keg.name} <br/>
+          Brewery Name: {props.keg.brewery}<br/>
+          Price: ${props.keg.price}<br/>
+          IBU: {props.keg.ibu}<br/>
+          ABV: {props.keg.abv}%<br/>
+          Pints remaining: {props.keg.quantity}</p>
+        <button onClick={()=> props.onClickingDelete(props.keg.id) }>Remove Tap</button>
       </Card>
-    </React.Fragment>
+    </div>
   );
 }
 
