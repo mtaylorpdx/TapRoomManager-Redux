@@ -1,9 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import KegList from './KegList';
 import NewKegForm from './NewKegForm';
 import KegDetails from './KegDetails';
 import { Row, Col } from 'react-bootstrap';
-import { connect } from 'react-redux';
 
 class KegController extends React.Component {
 
@@ -37,7 +37,7 @@ class KegController extends React.Component {
   handleAddingNewKegToList = (newKeg) => {
     const { dispatch } = this.props;
     const { name, brewery, price, ibu, abv, quantity, id } = newKeg;
-    action = {
+    const action = {
       type: 'ADD_KEG',
       name: name,
       brewery: brewery,
@@ -51,7 +51,7 @@ class KegController extends React.Component {
   }
 
   handleChangingSelectedKeg = (id) => {
-    const selectedKeg = this.state.masterKegList.filter(keg => keg.id ===id)[0];
+    const selectedKeg = this.props.masterKegList[id];
     this.setState({selectedKeg: selectedKeg});
   }
 
@@ -104,7 +104,7 @@ class KegController extends React.Component {
         <Row>
           <Col md={8}>
             <KegList 
-              kegList={this.state.masterKegList}
+              kegList={this.props.masterKegList}
               onKegSelection={this.handleChangingSelectedKeg}
               onSellingPint={this.handleSellingPint} />
           </Col>
@@ -117,6 +117,12 @@ class KegController extends React.Component {
   }
 }
 
-KegController = connect()(KegController);
+const mapStateToProps = state => {
+  return {
+    masterKegList: state
+  }
+}
+
+KegController = connect(mapStateToProps)(KegController);
 
 export default KegController;
