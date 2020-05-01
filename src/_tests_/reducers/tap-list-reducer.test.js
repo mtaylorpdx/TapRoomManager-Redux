@@ -19,7 +19,7 @@ describe('tapListReducer', () => {
     id: 1
   };
 
-  test('Should successfully add new keg data to masterKegList', () => {
+  test('Should successfully add new keg data to masterTapList', () => {
     const { name, brewery, price, ibu, abv, quantity, id } = kegData;
     action = {
       type: 'ADD_KEG',
@@ -32,7 +32,7 @@ describe('tapListReducer', () => {
       id: id
     };
 
-    expect(kegListReducer({}, action)).toEqual({
+    expect(tapListReducer({}, action)).toEqual({
       [id] : {
         name: name,
         brewery: brewery,
