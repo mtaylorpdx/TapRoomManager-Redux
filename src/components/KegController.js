@@ -4,7 +4,7 @@ import KegList from './KegList';
 import NewKegForm from './NewKegForm';
 import KegDetails from './KegDetails';
 import { Row, Col } from 'react-bootstrap';
-import * as a from'./../actions';
+import * as a from'./../actions'; 
 
 class KegController extends React.Component {
 
@@ -37,18 +37,8 @@ class KegController extends React.Component {
 
   handleAddingNewKegToList = (newKeg) => {
     const { dispatch } = this.props;
-    const { name, brewery, price, ibu, abv, quantity, id } = newKeg;
-    const action = {
-      type: 'ADD_KEG',
-      name: name,
-      brewery: brewery,
-      price: price,
-      ibu: ibu,
-      abv: abv,
-      quantity: quantity,
-      id: id
-    };
-    dispatch(action);
+    const action = a.addKeg(newKeg);
+    dispatch(action)
   }
 
   handleChangingSelectedKeg = (id) => {
@@ -58,10 +48,7 @@ class KegController extends React.Component {
 
   handleDeletingKeg = (id) => {
     const { dispatch } = this.props;
-    const action = {
-      type: 'DELETE_TICKET',
-      id: id
-    }
+    const action = a.deleteKeg(id);
     dispatch(action);
     this.setState({selectedKeg: null});
   }
