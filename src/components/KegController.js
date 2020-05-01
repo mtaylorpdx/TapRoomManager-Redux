@@ -11,32 +11,43 @@ class KegController extends React.Component {
     super(props);
     this.state = {
       selectedKeg: {},
-      masterKegList: [
-        {
-          name: "All Day IPA",
-          brewery: "Founders",
-          price: "5.00",
-          ibu: "42",
-          abv: "4.7",
-          quantity: 124,
-          id: 1
-        },
-        {
-          name: "Blackstone",
-          brewery: "Driftwood Brewing",
-          price: "6.00",
-          ibu: "20",
-          abv: "6",
-          quantity: 124,
-          id: 2
-        }
-      ]
+      // masterKegList: [
+      //   {
+      //     name: "All Day IPA",
+      //     brewery: "Founders",
+      //     price: "5.00",
+      //     ibu: "42",
+      //     abv: "4.7",
+      //     quantity: 124,
+      //     id: 1
+      //   },
+      //   {
+      //     name: "Blackstone",
+      //     brewery: "Driftwood Brewing",
+      //     price: "6.00",
+      //     ibu: "20",
+      //     abv: "6",
+      //     quantity: 124,
+      //     id: 2
+      //   }
+      // ]
     };
   }
 
   handleAddingNewKegToList = (newKeg) => {
-    const newKegList = this.state.masterKegList.concat(newKeg);
-    this.setState({masterKegList: newKegList});
+    const { dispatch } = this.props;
+    const { name, brewery, price, ibu, abv, quantity, id } = newKeg;
+    action = {
+      type: 'ADD_KEG',
+      name: name,
+      brewery: brewery,
+      price: price,
+      ibu: ibu,
+      abv: abv,
+      quantity: quantity,
+      id: id
+    };
+    dispatch(action);
   }
 
   handleChangingSelectedKeg = (id) => {
@@ -45,8 +56,13 @@ class KegController extends React.Component {
   }
 
   handleDeletingKeg = (id) => {
-    const newMasterKegList = this.state.masterKegList.filter(keg => keg.id !== id);
-    this.setState({masterKegList: newMasterKegList, selectedKeg: null});
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_TICKET',
+      id: id
+    }
+    dispatch(action);
+    this.setState({selectedKeg: null});
   }
 
   // Other selling pint function below. Still not bug-free.
