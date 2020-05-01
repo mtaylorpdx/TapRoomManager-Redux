@@ -4,6 +4,7 @@ import KegList from './KegList';
 import NewKegForm from './NewKegForm';
 import KegDetails from './KegDetails';
 import { Row, Col } from 'react-bootstrap';
+import * as a from'./../actions';
 
 class KegController extends React.Component {
 
