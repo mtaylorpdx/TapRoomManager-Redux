@@ -3,6 +3,7 @@ import KegList from './KegList';
 import NewKegForm from './NewKegForm';
 import KegDetails from './KegDetails';
 import { Row, Col } from 'react-bootstrap';
+import { Connect } from 'react-redux';
 
 class KegController extends React.Component {
 
@@ -99,5 +100,7 @@ class KegController extends React.Component {
     );
   }
 }
+
+KegController = connect()(KegController);
 
 export default KegController;
