@@ -9,29 +9,29 @@ describe('tapListReducer', () => {
 describe('tapListReducer', () => {
 
   const currentState = {
-    1: { name: "All Day IPA",
-      brewery: "Founders",
-      price: "5.00",
-      ibu: "42",
-      abv: "4.7",
+    1: { name: 'All Day IPA',
+      brewery: 'Founders',
+      price: '5.00',
+      ibu: '42',
+      abv: '4.7',
       quantity: 124,
       id: 1 },
-    2: { name: "Blackstone",
-      brewery: "Driftwood Brewing",
-      price: "6.00",
-      ibu: "20",
-      abv: "6",
+    2: { name: 'Blackstone',
+      brewery: 'Driftwood Brewing',
+      price: '6.00',
+      ibu: '20',
+      abv: '6',
       quantity: 124,
       id: 2 }
   }
 
   let action;
   const kegData = {
-    name: "All Day IPA",
-    brewery: "Founders",
-    price: "5.00",
-    ibu: "42",
-    abv: "4.7",
+    name: 'All Day IPA',
+    brewery: 'Founders',
+    price: '5.00',
+    ibu: '42',
+    abv: '4.7',
     quantity: 124,
     id: 1
   };
@@ -67,11 +67,11 @@ describe('tapListReducer', () => {
       id: 1
     };
     expect(tapListReducer(currentState, action)).toEqual({
-      2: { name: "Blackstone",
-      brewery: "Driftwood Brewing",
-      price: "6.00",
-      ibu: "20",
-      abv: "6",
+      2: { name: 'Blackstone',
+      brewery: 'Driftwood Brewing',
+      price: '6.00',
+      ibu: '20',
+      abv: '6',
       quantity: 124,
       id: 2 }
     });
@@ -81,20 +81,20 @@ describe('tapListReducer', () => {
 
 
 // {
-//   name: "All Day IPA",
-//   brewery: "Founders",
-//   price: "5.00",
-//   ibu: "42",
-//   abv: "4.7",
+//   name: 'All Day IPA',
+//   brewery: 'Founders',
+//   price: '5.00',
+//   ibu: '42',
+//   abv: '4.7',
 //   quantity: 124,
 //   id: 1
 // },
 // {
-//   name: "Blackstone",
-//   brewery: "Driftwood Brewing",
-//   price: "6.00",
-//   ibu: "20",
-//   abv: "6",
+//   name: 'Blackstone',
+//   brewery: 'Driftwood Brewing',
+//   price: '6.00',
+//   ibu: '20',
+//   abv: '6',
 //   quantity: 124,
 //   id: 2
 // }
