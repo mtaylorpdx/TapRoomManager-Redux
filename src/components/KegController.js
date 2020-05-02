@@ -8,12 +8,12 @@ import * as a from'./../actions';
 
 class KegController extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
 
-    };
-  }
+  //   };
+  // }
 
   handleAddingNewKegToList = (newKeg) => {
     const { dispatch } = this.props;
@@ -46,7 +46,7 @@ class KegController extends React.Component {
   render() {
     let beerDetails = null;
 
-    if (this.state.selectedKeg != null) {
+    if (this.props.selectedKeg != null) {
       beerDetails = <KegDetails 
         keg = {this.props.selectedKeg} 
         onClickingDelete = {this.handleDeletingKeg} />

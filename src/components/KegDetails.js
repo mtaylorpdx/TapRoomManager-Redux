@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import Card from '@material-ui/core/Card';
 
 const KegDetails = (props) => {
-  // const { keg, onClickingDelete } = props;
-
   return (
     <div>
       <Card className="detailsCard">
