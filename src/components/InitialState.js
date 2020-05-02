@@ -1,5 +1,5 @@
 let initialState = {
-  masterKegList: {
+  kegList: {
     1 : {
       name: "All Day IPA",
       brewery: "Founders",

@@ -8,13 +8,6 @@ import * as a from'./../actions';
 
 class KegController extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-
-  //   };
-  // }
-
   handleAddingNewKegToList = (newKeg) => {
     const { dispatch } = this.props;
     const action = a.addKeg(newKeg);
@@ -36,11 +29,12 @@ class KegController extends React.Component {
   }
 
   handleSellingPint = (key) => {
-    const kegList = this.state.kegList;
-    kegList[(key - 1)].quantity -=1;
-    this.setState({
-      kegList: kegList
-    });
+    const selectedKeg = this.props.kegList[key];
+    const updatedQuantity = selectedKeg.quantity - 1;
+    const updatedKeg = {...selectedKeg, quantity: updatedQuantity};
+    const {dispatch} = this.props;
+    const action = a.addKeg(updatedKeg);
+    dispatch(action);
   }
 
   render() {
