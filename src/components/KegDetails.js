@@ -11,8 +11,7 @@ const KegDetails = (props) => {
             Brewery Name: {props.keg.brewery}<br/>
             Price: ${props.keg.price}<br/>
             IBU: {props.keg.ibu}<br/>
-            ABV: {props.keg.abv}%<br/>
-            Pints remaining: {props.keg.quantity}</p>
+            ABV: {props.keg.abv}%</p>
           <button onClick={()=> props.onClickingDelete(props.keg.id) }>Remove Tap</button>
         </Card>
       </React.Fragment>
