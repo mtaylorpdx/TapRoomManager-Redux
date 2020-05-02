@@ -19,6 +19,16 @@ export default (state = {}, action) => {
       const newState = { ...state };
       delete newState[id];
       return newState;
+    case c.DETAIL_KEG:
+      return Object.assign({}, state, {
+        name: name,
+        brewery: brewery,
+        price: price,
+        ibu: ibu,
+        abv: abv,
+        quantity: quantity,
+        id: id
+      });
     default:
       return state;
   }

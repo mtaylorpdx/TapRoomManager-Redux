@@ -28,8 +28,8 @@ class KegController extends React.Component {
     this.setState({selectedKeg: null});
   }
 
-  handleSellingPint = (key) => {
-    const selectedKeg = this.props.kegList[key];
+  handleSellingPint = (id) => {
+    const selectedKeg = this.props.kegList[id];
     const updatedQuantity = selectedKeg.quantity - 1;
     const updatedKeg = {...selectedKeg, quantity: updatedQuantity};
     const {dispatch} = this.props;

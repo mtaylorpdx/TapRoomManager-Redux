@@ -31,4 +31,8 @@ export const detailKeg = (keg) => {
     quantity: quantity,
     id: id
   }
-}
+};
+
+  export const toggleDetail = () => ({
+    type: c.TOGGLE_DETAIL
+  });
