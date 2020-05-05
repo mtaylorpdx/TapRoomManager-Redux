@@ -30,11 +30,14 @@ class KegController extends React.Component {
 
   handleSellingPint = (id) => {
     const selectedKeg = this.props.kegList[id];
-    const updatedQuantity = selectedKeg.quantity - 1;
-    const updatedKeg = {...selectedKeg, quantity: updatedQuantity};
-    const {dispatch} = this.props;
-    const action = a.addKeg(updatedKeg);
-    dispatch(action);
+
+    if (selectedKeg.quantity > 0) {
+      const updatedQuantity = selectedKeg.quantity - 1;
+      const updatedKeg = {...selectedKeg, quantity: updatedQuantity};
+      const {dispatch} = this.props;
+      const action = a.addKeg(updatedKeg);
+      dispatch(action);
+    }
   }
 
   render() {
