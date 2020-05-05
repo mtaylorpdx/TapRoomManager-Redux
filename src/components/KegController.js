@@ -25,8 +25,7 @@ class KegController extends React.Component {
     const { dispatch } = this.props;
     const action = a.deleteKeg(id);
     dispatch(action);
-    this.setState({selectedKeg: null});
-    const action2 = a.toggleDetail();
+    const action2 = a.detailKeg(false);
     dispatch(action2);
   }
 
