@@ -18,7 +18,8 @@ let initialState = {
       quantity: 124,
       id: 2
     }
-  }
+  },
+  selectedKeg: null
 }
 
 export default initialState;
